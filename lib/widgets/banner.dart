@@ -16,6 +16,7 @@ class YandexAdsBannerWidget extends StatelessWidget {
     Function? onReturnedToApplication,
     required this.id,
     required this.ads,
+    required this.height,
   }) : super(key: key) {
     if (onAdLoaded != null) {
       ads.setOnAdLoaded(id, EventTypes.BANNER, onAdLoaded);
@@ -44,12 +45,14 @@ class YandexAdsBannerWidget extends StatelessWidget {
 
   final String id;
   final FlutterYandexAds ads;
+  final int height;
 
   Widget build(BuildContext context) {
     const String viewType = 'yandex-ads-banner';
 
     final Map<String, dynamic> creationParams = <String, dynamic>{
       'id': id,
+      'height': height.toString(),
     };
 
     switch (defaultTargetPlatform) {

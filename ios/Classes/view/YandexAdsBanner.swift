@@ -24,27 +24,31 @@ class YandexAdsBanner: NSObject, FlutterPlatformViewFactory {
 }
 
 class Banner: NSObject, FlutterPlatformView {
+    private var _view: UIView
     private var banner: YMAAdView!
     private var api: YandexApi!
     private var id: String = ""
 
-    init(frame: CGRect, viewIdentifier viewId: Int64, arguments args: Any?, api api: YandexApi?) {
+    init(frame: CGRect, viewIdentifier viewId: Int64, arguments args: Any?, api: YandexApi?) {
+        self._view = UIView()
         super.init()
 
         let params = args as! [String: String]
         let id = params["id"]
-
+        let height: Int? = Int(params["height"] ?? "0")
         self.api = api
         self.id = id ?? ""
+        
 
-        banner = YMAAdView(adUnitID: id ?? "", adSize: YMAAdSize.fixedSize(with: .init(width: 320, height: 100)))
+        banner = YMAAdView(adUnitID: id ?? "", adSize: YMAAdSize.fixedSize(with: .init(width: 320, height: height ?? 50)))
         banner.delegate = self
         banner.removeFromSuperview()
+        banner.displayAtTop(in: _view)
         banner.loadAd()
     }
 
     func view() -> UIView {
-        return banner
+        return _view
     }
 }
 
@@ -58,9 +62,8 @@ extension Banner: YMAAdViewDelegate {
     }
 
     func adViewDidFailLoading(_ adView: YMAAdView, error: Error) {
+        print(error)
         let response = EventResponse()
-        response.code = 0
-        response.description = "\(error)"
 
         if let callback = api.callbacks[EventKey(id: id, name: "onAdFailedToLoad", type: EventType.BANNER.rawValue)] {
             callback(response, nil)
@@ -101,7 +104,6 @@ extension Banner: YMAAdViewDelegate {
 
     func adView(_ adView: YMAAdView, didTrackImpressionWith impressionData: YMAImpressionData?) {
         let response = EventResponse()
-        response.data = impressionData?.rawData ?? ""
 
         if let callback = api.callbacks[EventKey(id: id, name: "onImpression", type: EventType.BANNER.rawValue)] {
             callback(response, nil)

@@ -1,8 +1,8 @@
+#THIS IS A FORK OF []()
+
 # flutter_yandex_ads
 
 Yandex ADS for flutter applicaitions
-
-[Donnations](https://www.tinkoff.ru/cf/6xz8n4h0LzO)
 
 ## Roadmap
 
@@ -24,9 +24,7 @@ iOS
 Install package
 
 ```yaml
-flutter_yandex_ads:
-  git:
-    url: https://gitflic.ru/project/kovardin/flutter-yandex-ads.git
+flutter_yandex_ads: 0.0.4
 ```
 
 For android add to AndroidManifest.xml
@@ -68,6 +66,7 @@ Container(
   height: 100,
   child: YandexAdsBannerWidget(
     ads: ads,
+    height: 100,
     id: 'R-M-DEMO-320x50',
     onAdLoaded: () {
       print('onAdLoaded');

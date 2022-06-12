@@ -22,8 +22,8 @@ class YandexAdsBanner(private val api: YandexApi) : PlatformViewFactory(Standard
     override fun create(context: Context, viewId: Int, args: Any?): PlatformView {
         val params = args as Map<String?, Any?>?
         val id: String = params?.get("id") as String
-
-        return Banner(context, id, params, object : BannerAdEventListener {
+	val height: Int? = (params?.get("height") as String).toIntOrNull()
+        return Banner(context, id, height,  params, object : BannerAdEventListener {
             override fun onAdLoaded() {
                 val builder = Yandex.EventResponse.Builder()
 
@@ -72,12 +72,13 @@ class YandexAdsBanner(private val api: YandexApi) : PlatformViewFactory(Standard
     }
 }
 
-class Banner(context: Context, id: String, params: Map<String?, Any?>?, listener: BannerAdEventListener) : PlatformView {
+class Banner(context: Context, id: String,height: Int, params: Map<String?, Any?>?, listener: BannerAdEventListener) : PlatformView {
     private val banner: BannerAdView
 
     init {
+	val bSize = if (height == 50) AdSize.BANNER_320x50 else AdSize.BANNER_320x100
         banner = BannerAdView(context);
-        banner.setAdSize(AdSize.BANNER_320x50)
+        banner.setAdSize(bSize)
         banner.setAdUnitId(id)
         banner.setBannerAdEventListener(listener)
 
