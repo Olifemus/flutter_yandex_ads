@@ -38,7 +38,6 @@ class Banner: NSObject, FlutterPlatformView {
         let height: Int? = Int(params["height"] ?? "0")
         self.api = api
         self.id = id ?? ""
-        
 
         banner = YMAAdView(adUnitID: id ?? "", adSize: YMAAdSize.fixedSize(with: .init(width: 320, height: height ?? 50)))
         banner.delegate = self

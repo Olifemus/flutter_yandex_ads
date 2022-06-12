@@ -44,6 +44,7 @@ extension YandexAdsInterstitialComponent: YMAInterstitialAdDelegate {
         let response = EventResponse()
         response.code = error._code as NSNumber
         response.description = error._domain
+        print("inter did fail with error \(error)")
 
         if let callback = api.callbacks[EventKey(id: id, name: "onAdFailedToLoad", type: EventType.INTERSTITIAL.rawValue)] {
             callback(response, nil)
@@ -94,7 +95,6 @@ extension YandexAdsInterstitialComponent: YMAInterstitialAdDelegate {
         print("Interstitial ad did track impression data")
 
         let response = EventResponse()
-        response.data = impressionData?.rawData ?? ""
 
         if let callback = api.callbacks[EventKey(id: id, name: "onImpression", type: EventType.INTERSTITIAL.rawValue)] {
             callback(response, nil)
