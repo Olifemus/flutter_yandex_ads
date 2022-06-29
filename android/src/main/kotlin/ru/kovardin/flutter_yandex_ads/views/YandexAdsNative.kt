@@ -9,7 +9,7 @@ import io.flutter.plugin.platform.PlatformView
 import io.flutter.plugin.platform.PlatformViewFactory
 
 class YandexAdsNative: PlatformViewFactory(StandardMessageCodec.INSTANCE) {
-    override fun create(context: Context, viewId: Int, args: Any?): PlatformView {
+    override fun create(context: Context?, viewId: Int, args: Any?): PlatformView {
         return Native(context, 1);
     }
 }

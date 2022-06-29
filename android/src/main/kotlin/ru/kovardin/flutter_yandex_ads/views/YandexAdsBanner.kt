@@ -19,7 +19,7 @@ import ru.kovardin.flutter_yandex_ads.pigeons.Yandex
 
 class YandexAdsBanner(private val api: YandexApi) : PlatformViewFactory(StandardMessageCodec.INSTANCE) {
 
-    override fun create(context: Context, viewId: Int, args: Any?): PlatformView {
+    override fun create(context: Context?, viewId: Int, args: Any?): PlatformView {
         val params = args as Map<String?, Any?>?
         val id: String = params?.get("id") as String
 	val height: Int? = (params?.get("height") as String).toIntOrNull()
