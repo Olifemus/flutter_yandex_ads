@@ -23,7 +23,7 @@ class YandexAdsBanner(private val api: YandexApi) : PlatformViewFactory(Standard
         val params = args as Map<String?, Any?>?
         val id: String = params?.get("id") as String
 	val height: Int? = (params?.get("height") as String).toIntOrNull()
-        return Banner(context, id, height ?: 50,  params, object : BannerAdEventListener {
+        return Banner(context!!, id, height ?: 50,  params, object : BannerAdEventListener {
             override fun onAdLoaded() {
                 val builder = Yandex.EventResponse.Builder()
 
