@@ -48,6 +48,6 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation 'com.yandex.android:mobileads:5.0.0-alpha.2'
-    implementation 'com.yandex.android:mobmetricalib:4.1.1'
+    implementation 'com.yandex.android:mobileads:5.4.1'
+    implementation 'com.yandex.android:mobmetricalib:5.2.0'
 }
