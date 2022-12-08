@@ -83,6 +83,7 @@ class _BannerScreenState extends State<BannerScreen> {
         Container(
           height: 100,
           child: YandexAdsBannerWidget(
+            height: 100,
             ads: widget.ads,
             id: 'R-M-DEMO-320x50',
             onAdLoaded: () {

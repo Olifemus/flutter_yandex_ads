@@ -36,12 +36,12 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_yandex_ads/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
-  flutter_yandex_ads: 125f7519d5aff8760ea54847840df901b56c3c0a
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  flutter_yandex_ads: cb54f4475792946f31703f9aae112d12d87d5c7b
   YandexMobileAds: 3c143d8b8a4346e7b154698bb491b132af48c67b
   YandexMobileAdsInstream: 81859827d1b9535ffe03afc747d506795cca91f9
   YandexMobileMetrica: f5f9c605eaaba33ff6ab2b6bc3259035ca60ed87
 
 PODFILE CHECKSUM: 61ca60fa875dcbbb667231063fecf2e2115d5a78
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

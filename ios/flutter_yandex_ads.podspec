@@ -15,8 +15,8 @@ A new Flutter project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'YandexMobileAds', '5.0.0-alpha.2'
-  s.dependency 'YandexMobileAdsInstream', '0.9.0-alpha.2'
+  s.dependency 'YandexMobileAds', '5.3.1'
+  s.dependency 'YandexMobileAdsInstream', '0.13.0'
   s.platform = :ios, '10.0'
 
   # Flutter.framework does not contain a i386 slice.
